@@ -6,7 +6,7 @@
 using namespace std;
 using json = nlohmann::json;
 typedef unsigned long long ull;
-const ull MOD = 1e18 + 7; // Use high MOD to avoid overflow; can be adjusted
+const ull MOD = 2305843009213693951ULL; // Use high MOD to avoid overflow; can be adjusted
 
 // Convert from arbitrary base to decimal
 ull convertToDecimal(const string& val, int base) {
@@ -82,6 +82,9 @@ vector<pair<ull, ull>> parseJSON(const string& filename, int& k_out) {
 ull solve(const string& jsonPath) {
     int k;
     auto points = parseJSON(jsonPath, k);
+    for (auto& p : points) {
+        cout << "x = " << p.first << ", y = " << p.second << endl;
+    }
 
     // Try all k-combinations
     map<ull, int> freq;
